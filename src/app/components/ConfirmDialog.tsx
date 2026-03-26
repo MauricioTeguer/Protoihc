@@ -44,12 +44,12 @@ export function ConfirmDialog({
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center p-4 animate-in fade-in duration-200"
+        className="absolute inset-0 bg-black/50 z-50 flex items-end justify-center p-4 animate-in fade-in duration-200"
         onClick={onClose}
       >
         {/* Dialog */}
         <div
-          className="bg-background border border-border rounded-3xl w-full max-w-md shadow-xl animate-in slide-in-from-bottom-4 sm:slide-in-from-bottom-0 sm:zoom-in-95 duration-200"
+          className="bg-background border border-border rounded-3xl w-full max-w-full sm:max-w-md shadow-xl animate-in slide-in-from-bottom-4 duration-200 mb-4"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}

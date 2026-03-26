@@ -39,7 +39,7 @@ export function SettingsSidebar({
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
+        className={`absolute inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
@@ -47,7 +47,7 @@ export function SettingsSidebar({
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-background border-l border-border z-50 transition-transform duration-300 ${
+        className={`absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-background border-l border-border z-50 transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

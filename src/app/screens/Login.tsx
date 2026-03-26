@@ -18,7 +18,7 @@ export function Login() {
     <div className="min-h-screen bg-background flex flex-col">
       <Header title="Log In" showBack />
       
-      <div className="flex-1 p-6 max-w-md mx-auto w-full flex flex-col justify-center">
+      <div className="flex-1 p-6 max-w-md mx-auto w-full flex flex-col justify-center -mt-16">
         <form onSubmit={handleLogin} className="space-y-5">
           <div className="space-y-2">
             <label htmlFor="email" className="block text-sm text-foreground">

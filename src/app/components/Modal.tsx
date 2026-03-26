@@ -23,12 +23,12 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
+    <div className="absolute inset-0 z-50 flex items-end justify-center">
       <div
         className="absolute inset-0 bg-black/50"
         onClick={onClose}
       />
-      <div className="relative bg-background rounded-t-3xl sm:rounded-3xl w-full sm:max-w-md max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-background rounded-t-3xl w-full max-w-full sm:max-w-md max-h-[90vh] overflow-y-auto">
         <div className="sticky top-0 bg-background border-b border-border px-6 py-4 flex items-center justify-between rounded-t-3xl">
           <h2 className="text-xl font-semibold">{title}</h2>
           <button

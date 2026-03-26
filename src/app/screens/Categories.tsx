@@ -53,7 +53,7 @@ export function Categories() {
 
       <button
         onClick={() => setIsCreateModalOpen(true)}
-        className="fixed bottom-24 right-6 bg-primary text-primary-foreground w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
+        className="absolute bottom-24 right-6 bg-primary text-primary-foreground w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-transform"
       >
         <Plus className="w-6 h-6" />
       </button>
