@@ -30,12 +30,13 @@ export function ExpenseDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const backToHome = "/dashboard";
   const expense = expenses.find((e) => e.id === id);
 
   if (!expense) {
     return (
       <div className="min-h-full bg-background">
-        <Header title="Expense Not Found" showBack />
+        <Header title="Expense Not Found" showBack backTo={backToHome} backReplace />
       </div>
     );
   }
@@ -56,7 +57,7 @@ export function ExpenseDetail() {
 
   return (
     <div className="min-h-full bg-background">
-      <Header title="Expense Details" showBack />
+      <Header title="Expense Details" showBack backTo={backToHome} backReplace />
 
       <div className="max-w-md mx-auto p-6 space-y-6">
         {/* Amount Display */}

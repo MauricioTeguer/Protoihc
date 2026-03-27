@@ -21,7 +21,7 @@ export function Register() {
 
   return (
     <div className="h-full bg-background flex flex-col">
-      <Header title="Create Account" showBack />
+      <Header title="Create Account" showBack backTo="/" backReplace />
       
       <div className="flex-1 p-6 max-w-md mx-auto w-full flex flex-col justify-center -mt-16">
         <form onSubmit={handleRegister} className="space-y-5">

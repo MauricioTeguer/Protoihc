@@ -1,6 +1,5 @@
 import { ChevronLeft, ChevronRight, Filter, X, Calendar } from "lucide-react";
 import { useState } from "react";
-import { BottomNav } from "../components/BottomNav";
 import { ExpenseCard } from "../components/ExpenseCard";
 import { Header } from "../components/Header";
 import { expenses, categories } from "../data/mockData";
@@ -49,7 +48,7 @@ export function ExpensesList() {
   const hasActiveFilters = selectedCategory || startDate || endDate;
 
   return (
-    <div className="min-h-full bg-background pb-20">
+    <div className="min-h-full bg-background">
       <Header title="All Expenses" showBack />
 
       <div className="max-w-md mx-auto p-6 space-y-4">
@@ -189,7 +188,6 @@ export function ExpensesList() {
         </div>
       </div>
 
-      <BottomNav />
     </div>
   );
 }

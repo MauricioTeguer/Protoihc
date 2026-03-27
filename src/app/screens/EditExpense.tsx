@@ -7,6 +7,8 @@ import { categories, expenses } from "../data/mockData";
 export function EditExpense() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const backToDashboard = "/dashboard";
+  const backToDetail = id ? `/expense/${id}` : backToDashboard;
   const expense = expenses.find((e) => e.id === id);
 
   const [amount, setAmount] = useState(expense?.amount.toString() || "");
@@ -17,20 +19,20 @@ export function EditExpense() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Mock save - just navigate back
-    navigate(`/expense/${id}`);
+    navigate(backToDetail);
   };
 
   if (!expense) {
     return (
       <div className="min-h-full bg-background">
-        <Header title="Expense Not Found" showBack />
+        <Header title="Expense Not Found" showBack backTo={backToDashboard} backReplace />
       </div>
     );
   }
 
   return (
     <div className="min-h-full bg-background flex flex-col">
-      <Header title="Edit Expense" showBack />
+      <Header title="Edit Expense" showBack backTo={backToDetail} backReplace />
 
       <div className="flex-1 p-6 max-w-md mx-auto w-full">
         <form onSubmit={handleSubmit} className="space-y-5">

@@ -16,7 +16,7 @@ export function Login() {
 
   return (
     <div className="h-full bg-background flex flex-col">
-      <Header title="Log In" showBack />
+      <Header title="Log In" showBack backTo="/" backReplace />
       
       <div className="flex-1 p-6 max-w-md mx-auto w-full flex flex-col justify-center -mt-16">
         <form onSubmit={handleLogin} className="space-y-5">
