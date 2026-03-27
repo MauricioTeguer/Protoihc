@@ -54,7 +54,7 @@ export function ExpenseCard({ expense }: ExpenseCardProps) {
       </div>
       
       <div className="text-right">
-        <p className="font-semibold text-lg">-${expense.amount.toFixed(2)}</p>
+        <p className="font-semibold text-lg">${expense.amount.toFixed(2)}</p>
       </div>
     </Link>
   );
