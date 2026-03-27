@@ -18,7 +18,7 @@ export function AddExpense() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-full bg-background flex flex-col">
       <Header title="Add Expense" showBack />
 
       <div className="flex-1 p-6 max-w-md mx-auto w-full">

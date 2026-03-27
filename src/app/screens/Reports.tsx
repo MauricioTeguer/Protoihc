@@ -5,7 +5,7 @@ import { BarChart3, PieChart } from "lucide-react";
 
 export function Reports() {
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-full bg-background pb-20">
       <Header title="Reports" />
 
       <div className="max-w-md mx-auto p-6 space-y-4">

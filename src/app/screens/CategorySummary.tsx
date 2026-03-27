@@ -6,7 +6,7 @@ export function CategorySummary() {
   const total = categoryTotals.reduce((sum, cat) => sum + cat.value, 0);
 
   return (
-    <div className="min-h-screen bg-background pb-8">
+    <div className="min-h-full bg-background pb-8">
       <Header title="Category Summary" showBack />
 
       <div className="max-w-md mx-auto p-6 space-y-6">

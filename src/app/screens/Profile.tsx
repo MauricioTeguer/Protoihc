@@ -15,7 +15,7 @@ export function Profile() {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-full bg-background pb-20">
       <Header title="Profile" />
 
       <div className="max-w-md mx-auto p-6 space-y-6">

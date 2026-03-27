@@ -55,7 +55,7 @@ export function CreateCategory() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-full bg-background flex flex-col">
       <Header title="Create Category" showBack />
 
       <div className="flex-1 p-6 max-w-md mx-auto w-full">

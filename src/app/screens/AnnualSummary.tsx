@@ -21,7 +21,7 @@ export function AnnualSummary() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background pb-8">
+    <div className="min-h-full bg-background pb-8">
       <Header title="Annual Summary" showBack />
 
       <div className="max-w-md mx-auto p-6 space-y-6">

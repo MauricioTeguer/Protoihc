@@ -37,18 +37,20 @@ export function Categories() {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="h-full bg-background flex flex-col relative overflow-hidden">
       <Header title="Categories" />
 
-      <div className="max-w-md mx-auto p-6 space-y-3">
-        {categories.map((category) => (
-          <CategoryItem
-            key={category.id}
-            category={category}
-            onEdit={() => handleEdit(category.id)}
-            onDelete={() => handleDeleteClick(category.id)}
-          />
-        ))}
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-md mx-auto p-6 space-y-3 pb-24">
+          {categories.map((category) => (
+            <CategoryItem
+              key={category.id}
+              category={category}
+              onEdit={() => handleEdit(category.id)}
+              onDelete={() => handleDeleteClick(category.id)}
+            />
+          ))}
+        </div>
       </div>
 
       <button

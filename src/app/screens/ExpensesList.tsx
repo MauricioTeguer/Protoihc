@@ -49,7 +49,7 @@ export function ExpensesList() {
   const hasActiveFilters = selectedCategory || startDate || endDate;
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-full bg-background pb-20">
       <Header title="All Expenses" showBack />
 
       <div className="max-w-md mx-auto p-6 space-y-4">

@@ -18,7 +18,7 @@ export function useNotifications() {
         };
   });
 
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Save settings to localStorage whenever they change
   useEffect(() => {
@@ -109,16 +109,21 @@ export function useNotifications() {
 
   // Test notification (sends immediately)
   const testNotification = () => {
-    if (settings.permission !== "granted") {
-      alert("Please enable notifications first");
+    const title = "Test Notification";
+    const body = "This is how your daily reminder will look! 🔔";
+
+    // Real browser notification when permission is granted
+    if (settings.permission === "granted" && "Notification" in window) {
+      new Notification(title, {
+        body,
+        icon: "/icon.png",
+        tag: "test-notification",
+      });
       return;
     }
 
-    new Notification("Test Notification", {
-      body: "This is how your daily reminder will look! 🔔",
-      icon: "/icon.png",
-      tag: "test-notification",
-    });
+    // Fallback simulation for development/demo
+    alert(`🔔 ${title}\n\n${body}`);
   };
 
   // Initialize scheduled notifications on mount

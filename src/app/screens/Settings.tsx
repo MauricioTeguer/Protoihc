@@ -1,5 +1,5 @@
-import { Bell, Clock, User, ChevronLeft } from "lucide-react";
-import { useState } from "react";
+import { Bell, Clock, User, ChevronLeft, Wallet } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChangeNameModal } from "../components/ChangeNameModal";
 import { useNotifications } from "../hooks/useNotifications";
@@ -12,13 +12,14 @@ interface SettingsProps {
 export function Settings({ userName = "John Doe", onSaveName }: SettingsProps) {
   const navigate = useNavigate();
   const [isChangeNameModalOpen, setIsChangeNameModalOpen] = useState(false);
+  const [showTestPopup, setShowTestPopup] = useState(false);
+  const popupTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const {
     settings: notificationSettings,
     enableNotifications,
     disableNotifications,
     updateTime,
-    testNotification,
   } = useNotifications();
 
   const handleToggleNotifications = async () => {
@@ -41,8 +42,27 @@ export function Settings({ userName = "John Doe", onSaveName }: SettingsProps) {
     setIsChangeNameModalOpen(false);
   };
 
+  const handleTestNotification = () => {
+    if (popupTimeoutRef.current) {
+      clearTimeout(popupTimeoutRef.current);
+    }
+
+    setShowTestPopup(true);
+    popupTimeoutRef.current = setTimeout(() => {
+      setShowTestPopup(false);
+    }, 2500);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (popupTimeoutRef.current) {
+        clearTimeout(popupTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-full bg-background relative overflow-hidden">
       {/* Header */}
       <div className="sticky top-0 z-10 bg-background border-b border-border">
         <div className="max-w-md mx-auto px-6 py-4 flex items-center gap-4">
@@ -55,6 +75,22 @@ export function Settings({ userName = "John Doe", onSaveName }: SettingsProps) {
           <h1 className="text-xl font-semibold">Settings</h1>
         </div>
       </div>
+
+      {showTestPopup && (
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 z-20 w-[calc(100%-3rem)] max-w-md">
+          <div className="bg-card border border-border rounded-xl px-4 py-3 shadow-lg">
+            <div className="flex items-center gap-2">
+              <div className="w-6 h-6 bg-primary rounded-md flex items-center justify-center">
+                <Wallet className="w-4 h-4 text-primary-foreground" />
+              </div>
+              <p className="text-sm font-medium">ExpenTra</p>
+            </div>
+            <p className="text-xs text-muted-foreground mt-1">
+              This is how your daily reminder will look.
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className="max-w-md mx-auto p-6 space-y-6">
         {/* Daily Reminder */}
@@ -104,7 +140,7 @@ export function Settings({ userName = "John Doe", onSaveName }: SettingsProps) {
               </div>
 
               <button
-                onClick={testNotification}
+                onClick={handleTestNotification}
                 className="w-full bg-background border border-border rounded-xl p-3 text-sm font-medium hover:bg-secondary transition-colors"
               >
                 Send Test Notification

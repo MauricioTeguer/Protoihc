@@ -22,14 +22,14 @@ export function EditExpense() {
 
   if (!expense) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-full bg-background">
         <Header title="Expense Not Found" showBack />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-full bg-background flex flex-col">
       <Header title="Edit Expense" showBack />
 
       <div className="flex-1 p-6 max-w-md mx-auto w-full">

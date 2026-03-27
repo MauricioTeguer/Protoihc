@@ -12,7 +12,7 @@ export function Dashboard() {
   const recentExpenses = expenses.slice(0, 5);
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="min-h-full bg-background pb-20">
       {/* Header */}
       <div className="bg-primary text-primary-foreground p-6 pb-8 rounded-b-3xl">
         <div className="max-w-md mx-auto">

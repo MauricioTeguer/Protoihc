@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function Welcome() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-accent/20 flex flex-col items-center justify-center p-6">
+    <div className="h-full bg-gradient-to-br from-primary/10 via-background to-accent/20 flex flex-col items-center justify-center p-6">
       <div className="max-w-md w-full space-y-8 text-center -mt-16">
         <div className="flex justify-center">
           <div className="w-24 h-24 bg-primary rounded-3xl flex items-center justify-center shadow-lg">

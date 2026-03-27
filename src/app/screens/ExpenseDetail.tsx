@@ -34,7 +34,7 @@ export function ExpenseDetail() {
 
   if (!expense) {
     return (
-      <div className="min-h-screen bg-background">
+      <div className="min-h-full bg-background">
         <Header title="Expense Not Found" showBack />
       </div>
     );
@@ -55,7 +55,7 @@ export function ExpenseDetail() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-full bg-background">
       <Header title="Expense Details" showBack />
 
       <div className="max-w-md mx-auto p-6 space-y-6">
