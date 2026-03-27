@@ -1,11 +1,19 @@
+# Protoihc
 
-  # Implement requested changes (Copy)
+## Instalar dependencias
 
-  This is a code bundle for Implement requested changes (Copy). The original project is available at https://www.figma.com/design/bDBjbzybL344ktHvng7NbJ/Implement-requested-changes--Copy-.
+```bash
+npm install
+```
 
-  ## Running the code
+## Correr la app
 
-  Run `npm i` to install the dependencies.
+```bash
+npm run dev
+```
 
-  Run `npm run dev` to start the development server.
-  
+## Url
+
+```bash
+http://localhost:5173/
+```
