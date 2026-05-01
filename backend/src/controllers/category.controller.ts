@@ -3,6 +3,10 @@ import { categoryPayloadSchema } from "../schemas/category.schema.js";
 import { AppError } from "../services/errors.js";
 import type { CategoryService } from "../services/category.service.js";
 
+function getRouteParam(value: string | string[]) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
@@ -46,7 +50,7 @@ export class CategoryController {
         throw new AppError(400, "VALIDATION_ERROR", "El payload de la categoría es inválido", parseResult.error.flatten());
       }
 
-      const category = await this.categoryService.update(request.user.id, request.params.id, parseResult.data);
+      const category = await this.categoryService.update(request.user.id, getRouteParam(request.params.id), parseResult.data);
 
       response.status(200).json({
         success: true,
@@ -59,7 +63,7 @@ export class CategoryController {
 
   remove = async (request: Request, response: Response, next: NextFunction) => {
     try {
-      await this.categoryService.remove(request.user.id, request.params.id);
+      await this.categoryService.remove(request.user.id, getRouteParam(request.params.id));
 
       response.status(200).json({
         success: true,

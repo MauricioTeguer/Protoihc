@@ -1,10 +1,25 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { CategoriesScreen } from "../screens/CategoriesScreen";
+import { DashboardScreen } from "../screens/DashboardScreen";
+import { ExpenseDetailScreen } from "../screens/ExpenseDetailScreen";
+import { ExpensesScreen } from "../screens/ExpensesScreen";
 import { ScreenPlaceholder } from "../components/ScreenPlaceholder";
 import { palette } from "../theme/palette";
 import { SymbolIcon } from "../components/SymbolIcon";
 
 const Tab = createBottomTabNavigator();
+const ExpensesStack = createNativeStackNavigator();
+
+function ExpensesNavigator() {
+  return (
+    <ExpensesStack.Navigator screenOptions={{ headerShown: false }}>
+      <ExpensesStack.Screen name="Dashboard" component={DashboardScreen} />
+      <ExpensesStack.Screen name="ExpensesList" component={ExpensesScreen} />
+      <ExpensesStack.Screen name="ExpenseDetail" component={ExpenseDetailScreen} />
+    </ExpensesStack.Navigator>
+  );
+}
 
 export function AppNavigator() {
   return (
@@ -34,16 +49,7 @@ export function AppNavigator() {
         },
       })}
     >
-      <Tab.Screen
-        name="Home"
-        children={() => (
-          <ScreenPlaceholder
-            title="Home próximamente"
-            description="Dejamos la barra inferior preparada para que el módulo de categorías conviva con futuras secciones."
-            icon="⌂"
-          />
-        )}
-      />
+      <Tab.Screen name="Home" component={ExpensesNavigator} />
       <Tab.Screen name="Categories" component={CategoriesScreen} />
       <Tab.Screen
         name="Reports"

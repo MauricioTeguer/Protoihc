@@ -12,6 +12,7 @@ model User {
   email      String     @unique
   name       String?
   categories Category[]
+  expenses   Expense[]
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
 }
@@ -23,9 +24,26 @@ model Category {
   color     String
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expenses  Expense[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@unique([userId, name])
   @@index([userId])
+}
+
+model Expense {
+  id         String   @id @default(cuid())
+  amount     Decimal
+  date       DateTime
+  note       String?
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([userId, date])
+  @@index([categoryId])
 }

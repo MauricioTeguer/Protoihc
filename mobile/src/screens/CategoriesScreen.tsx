@@ -112,9 +112,6 @@ export function CategoriesScreen() {
           <View style={styles.feedbackCard}>
             <Text style={styles.feedbackTitle}>No se pudo completar la acción</Text>
             <Text style={styles.feedbackDescription}>{error}</Text>
-            <Pressable onPress={() => void loadCategories()} style={styles.retryButton}>
-              <Text style={styles.retryButtonLabel}>Reintentar</Text>
-            </Pressable>
           </View>
         ) : null}
 

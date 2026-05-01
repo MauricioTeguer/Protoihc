@@ -58,8 +58,11 @@ export class CategoryRepository {
     });
   }
 
-  async hasLinkedExpenses(_id: string) {
-    // Future-proofing for the Expense module business rule.
-    return false;
+  async hasLinkedExpenses(id: string) {
+    const linkedExpenses = await this.db.expense.count({
+      where: { categoryId: id },
+    });
+
+    return linkedExpenses > 0;
   }
 }
